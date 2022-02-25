@@ -1188,6 +1188,10 @@ public class CardProperty {
             if (card.getReceivedDamageFromPlayerThisTurn().isEmpty()) {
                 return false;
             }
+        } else if (property.startsWith("wasDealtExcessDamageThisTurn")) {
+            if (!card.hasBeenDealtExcessDamageThisTurn()) {
+                return false;
+            }
         } else if (property.startsWith("dealtDamageThisTurn")) {
             if (card.getTotalDamageDoneBy() == 0) {
                 return false;
