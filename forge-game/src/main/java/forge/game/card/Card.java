@@ -5434,6 +5434,9 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
         if (isCombat) {
             source.getDamageHistory().registerCombatDamage(this, damageIn);
         }
+        if (isCreature() && source.hasKeyword(Keyword.DEATHTOUCH)) {
+            setHasBeenDealtDeathtouchDamage(true);
+        }
 
         // Run triggers
         Map<AbilityKey, Object> runParams = AbilityKey.newMap();
@@ -5466,7 +5469,6 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
             }
 
             if (source.hasKeyword(Keyword.DEATHTOUCH)) {
-                setHasBeenDealtDeathtouchDamage(true);
                 damageType = DamageType.Deathtouch;
             }
 
