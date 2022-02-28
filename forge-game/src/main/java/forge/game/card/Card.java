@@ -254,6 +254,7 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
 
     private int damage;
     private boolean hasBeenDealtDeathtouchDamage = false;
+    private boolean hasBeenDealtExcessDamageThisTurn = false;
 
     // regeneration
     private FCollection<Card> shields = new FCollection<>();
@@ -5284,6 +5285,13 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
     }
     public final void setHasBeenDealtDeathtouchDamage(final boolean hasBeenDealtDeatchtouchDamage) {
         this.hasBeenDealtDeathtouchDamage = hasBeenDealtDeatchtouchDamage;
+    }
+
+    public final boolean hasBeenDealtExcessDamageThisTurn() {
+        return hasBeenDealtExcessDamageThisTurn;
+    }
+    public final void setHasBeenDealtExcessDamageThisTurn(final boolean bool) {
+        this.hasBeenDealtExcessDamageThisTurn = bool;
     }
 
     public final Map<Card, Integer> getAssignedDamageMap() {
