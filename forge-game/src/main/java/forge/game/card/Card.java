@@ -5445,6 +5445,12 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
         if (isCreature() && source.hasKeyword(Keyword.DEATHTOUCH)) {
             setHasBeenDealtDeathtouchDamage(true);
         }
+        if (!hasBeenDealtExcessDamageThisTurn()) {
+            int lethal = hasBeenDealtDeathtouchDamage() ? 1 : getLethalDamage();
+            if (damageIn > lethal) {
+                setHasBeenDealtExcessDamageThisTurn(true);
+            }
+        }
 
         // Run triggers
         Map<AbilityKey, Object> runParams = AbilityKey.newMap();
