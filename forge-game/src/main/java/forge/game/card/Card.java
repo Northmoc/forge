@@ -6086,6 +6086,7 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars {
             setDamage(0);
         }
         setHasBeenDealtDeathtouchDamage(false);
+        setHasBeenDealtExcessDamageThisTurn(false);
         resetReceivedDamageFromThisTurn();
         setRegeneratedThisTurn(0);
         resetShield();
