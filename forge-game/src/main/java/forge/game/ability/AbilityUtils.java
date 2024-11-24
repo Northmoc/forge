@@ -3010,6 +3010,7 @@ public class AbilityUtils {
         }
 
         for (SpellAbility s : list) {
+            if (s == null) continue;
             if (s.isLandAbility()) {
                 s.setActivatingPlayer(controller);
                 // CR 305.3
